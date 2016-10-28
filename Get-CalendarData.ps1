@@ -15,7 +15,7 @@ $service = New-Object Microsoft.Exchange.WebServices.Data.ExchangeService($Excha
   
 #Credentials Option 1 using UPN for the windows Account  
 # Tech Support Kalender: Tech.Support@alpha-solutions.ch
-$creds = New-Object System.Net.NetworkCredential("Tech.Support@alpha-solutions.ch","Sup4Alp15$!")   
+$creds = New-Object System.Net.NetworkCredential("EMAIL_MAILBOX","PASSWORD_MAILBOX")   
 $service.Credentials = $creds      
   
 #Credentials Option 2  
@@ -68,7 +68,7 @@ $service.Url = "https://outlook.office365.com/EWS/Exchange.asmx"
   
   
 # Bind to the Calendar Folder
-$folderid= new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]::Calendar,"Tech.Support@alpha-solutions.ch")   # $MailboxName war hier !!!!!!!!!!!!!
+$folderid= new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]::Calendar,"MAILBOX_EMAIL")   # $MailboxName war hier !!!!!!!!!!!!!
 $Calendar = [Microsoft.Exchange.WebServices.Data.Folder]::Bind($service,$folderid)
 $Recurring = new-object Microsoft.Exchange.WebServices.Data.ExtendedPropertyDefinition([Microsoft.Exchange.WebServices.Data.DefaultExtendedPropertySet]::Appointment, 0x8223,[Microsoft.Exchange.WebServices.Data.MapiPropertyType]::Boolean); 
 $psPropset= new-object Microsoft.Exchange.WebServices.Data.PropertySet([Microsoft.Exchange.WebServices.Data.BasePropertySet]::FirstClassProperties)  
