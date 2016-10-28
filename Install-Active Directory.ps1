@@ -1,6 +1,6 @@
 ### Autor: Nemanja Bocokic
 ### Datum: 05.07.2016
-### Funktion: Installation und Konfiguration eines AD Standardserver + Wartungstools (MUSS AUF HV-HOST AUSGEFÜHRT WERDEN)
+### Funktion: Installation und Konfiguration eines AD Standardserver + Wartungstools (MUSS AUF HV-HOST AUSGEFÃœHRT WERDEN)
 
 ## Variabeleingabe
 # Standardeinstellungen
@@ -14,10 +14,10 @@ $newname = "SRVDC01" # Hostname
 # AD Einstellungen
 $domainname = "alpha.local"
 $netbiosName = "alpha" # NetBIOS Name
-$adminpw = "AlphA2016" # PW des Admins
+$adminpw = "Test" # PW des Admins
 
 ## Start der Konfiguration
-# VM auswählen
+# VM auswÃ¤hlen
 Enter-PSSession -VMName $vmname
 Invoke-Command -VMName $vmname -ScriptBlock {
 
@@ -31,7 +31,7 @@ Set-DnsClientServerAddress -InterfaceIndex $ipif[0].ifIndex -ServerAddresses $ip
 
 # Umbenennung des Computers
 
-Rename-Computer -NewName $newname –force
+Rename-Computer -NewName $newname â€“force
 
 #Installieren von AD DS, DNS und GPMC
 start-job -Name addFeature -ScriptBlock {
@@ -64,7 +64,7 @@ If (!Test-Path "C:\ProgramData\Chocolatey\choco.exe") {
 	iwr "https://chocolatey.org/install.ps1" -UseBasicParsing | iex
 }
 
-# Installiere/Upgrade nützliche Tools
+# Installiere/Upgrade nÃ¼tzliche Tools
 choco upgrade "notepadplusplus.install" -y
 choco upgrade "dotnet4.5" -y
 choco upgrade "sysinternals" -y
